@@ -85,7 +85,7 @@
 
                             <div class="form-group col-lg-6">
                                 <label>ID Card No</label>
-                                <input type="text" class="form-control" placeholder="ID Card No" id="id_card_no" required>
+                                <input type="text" class="form-control" placeholder="ID Card No" id="id_card_no" maxlength="20" required>
                                 <div class="help-block with-errors"></div>
                             </div>
                             <div class="form-group col-lg-6">

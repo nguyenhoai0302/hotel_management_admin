@@ -326,6 +326,15 @@
                                     <label>Advance Payment</label>
                                     <input type="number" class="form-control" id="advance_payment"
                                            placeholder="Advance Payment">
+                                           <script>
+                                                document.getElementById("advance_payment").addEventListener("input", function () {
+                                                    let value = parseFloat(this.value);
+                                                    if (value < 0) {
+                                                        this.value = ""; // Xóa giá trị nếu âm
+                                                        alert("Please enter a positive number!");
+                                                    }
+                                                });
+                                            </script>
                                 </div>
                                 <input type="hidden" id="getBookingID" value="">
                                 <button type="submit" class="btn btn-primary pull-right">Payment & Check In</button>

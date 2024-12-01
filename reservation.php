@@ -185,6 +185,66 @@ if (isset($_GET['room_id'])){
                         </div>
                     </div>
                     <button type="submit" class="btn btn-lg btn-primary pull-right">Submit</button>
+                    
+<script>
+
+        document.getElementById('submitButton').addEventListener('click', function (event) {
+        event.preventDefault();
+
+        let isValid = true;
+        let errorMessage = "";
+
+        // Check email
+        const emailInput = document.getElementById('email');
+        const emailValue = emailInput.value.trim();
+        const emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/; // Email must have a valid format
+
+        if (!emailValue) {
+            isValid = false;
+            errorMessage += "Email cannot be empty.\n";
+        } else if (!emailRegex.test(emailValue)) {
+            isValid = false;
+            errorMessage += "Email must have a valid format.\n";
+        }
+
+        // Check other fields
+        const firstName = document.getElementById('first_name').value.trim();
+        const contactNo = document.getElementById('contact_no').value.trim();
+        const idCardNo = document.getElementById('id_card_no').value.trim();
+        const address = document.getElementById('address').value.trim();
+
+        if (!firstName) {
+            isValid = false;
+            errorMessage += "First name cannot be empty.\n";
+        }
+
+        if (!contactNo || contactNo.length < 10) {
+            isValid = false;
+            errorMessage += "Phone number must have at least 10 digits.\n";
+        }
+
+        if (!idCardNo) {
+            isValid = false;
+            errorMessage += "ID card number cannot be empty.\n";
+        }
+
+        if (!address) {
+            isValid = false;
+            errorMessage += "Address cannot be empty.\n";
+        }
+
+        // If not valid, display error message
+        if (!isValid) {
+            alert('Please enter valid data!');
+        } else {
+            // If valid, submit form
+            document.getElementById('booking').submit();
+        }
+    });
+
+
+
+</script>
                 </div>
             </form>
         </div>
@@ -262,5 +322,4 @@ if (isset($_GET['room_id'])){
 
     </div>
 </div>
-
 
